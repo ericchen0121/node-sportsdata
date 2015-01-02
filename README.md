@@ -13,7 +13,7 @@ This module is meant to become a comprehensive list of the SportsData API calls 
 Or from source:
 
 <pre>
-  git clone git://github.com/rgerard/node-sportsdata.git 
+  git clone git://github.com/ericchen0121/node-sportsdata.git 
   cd node-sportsdata
   npm install
 </pre>
