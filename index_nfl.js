@@ -15,7 +15,10 @@
 var config = require('./config'),
     request = require('request'),
     xml2js = require('xml2js'),
-    parser = new xml2js.Parser(),
+    // https://github.com/Leonidas-from-XIV/node-xml2js#options
+    // Merge the attributes with child nodes; this prevents the $ object 
+    // which cannot be saved to MongoDB
+    parser = new xml2js.Parser({mergeAttrs: true}),
     urlHelper = require('./util/url_helper_nfl');
 
 function init(access_level, version, apikey, year, season) {
