@@ -18,7 +18,7 @@ var config = require('./config'),
     // https://github.com/Leonidas-from-XIV/node-xml2js#options
     // Merge the attributes with child nodes; this prevents the $ object 
     // which cannot be saved to MongoDB
-    parser = new xml2js.Parser({mergeAttrs: true}),
+    parser = new xml2js.Parser({mergeAttrs: true, explicitArray: false}),
     urlHelper = require('./util/url_helper_nfl');
 
 function init(access_level, version, apikey, year, season) {
