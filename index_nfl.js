@@ -1,3 +1,4 @@
+// Modified Eric Chen 2015
 // Copyright 2010-2012 Ryan Gerard
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +16,18 @@
 var config = require('./config'),
     request = require('request'),
     xml2js = require('xml2js'),
-    // https://github.com/Leonidas-from-XIV/node-xml2js#options
-    // Merge the attributes with child nodes; this prevents the $ object 
-    // which cannot be saved to MongoDB
+    // Merge the attributes with child nodes; this prevents the $ object, which is incompatible with MongoDB
     parser = new xml2js.Parser({mergeAttrs: true, explicitArray: false}),
     urlHelper = require('./util/url_helper_nfl');
+
+// Type convert strings to integers / numbers
+parser.onattribute = function (attr) {
+// http://stackoverflow.com/questions/175739/is-there-a-built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+  // If the string value is actually a number
+  if(!isNan(+attr.value)){
+    attr.value = +attr.value
+  }
+}
 
 function init(access_level, version, apikey, year, season) {
     config.nfl.access_level = access_level;
