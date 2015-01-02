@@ -1,25 +1,26 @@
 {
-  "name": "sportsdata",
+  "name": "sportsdata-mongo",
   "version": "0.1.19",
-  "description": "Node module that wraps the SportsData API",
+  "description": "Node module that wraps the SportsData API with mongoDB-friendly parsing",
   "main": "index.js",
   "scripts": {
     "test": "nodeunit test/"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/rgerard/node-sportsdata.git"
+    "url": "http://github.com/ericchen0121/node-sportsdata.git"
   },
   "keywords": [
     "sportsdata",
     "sports",
-    "api"
+    "api", 
+    "mongoDB"
   ],
-  "author": "Ryan Gerard",
+  "author": "Eric Chen",
   "engines" : {
       "node": "*"
   },
-  "homepage" : "https://github.com/rgerard/node-sportsdata",
+  "homepage" : "https://github.com/ericchen0121/node-sportsdata",
   "dependencies": {
     "request" : ">= 0.0.1",
     "xml2js" : ">= 0.0.1"
