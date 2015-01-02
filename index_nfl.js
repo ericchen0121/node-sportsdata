@@ -24,7 +24,7 @@ var config = require('./config'),
 parser.onattribute = function (attr) {
 // http://stackoverflow.com/questions/175739/is-there-a-built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
   // If the string value is actually a number
-  if(!isNan(+attr.value)){
+  if(!isNaN(+attr.value)){
     attr.value = +attr.value
   }
 }
