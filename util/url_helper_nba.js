@@ -1,26 +1,32 @@
 var config = require('../config');
 
-function createUrlWithEndpoint(endpoint) {
+function createUrlWithEndpoint(entity, endpoint) {
   // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[season]/[nba_season]/[endpoint].xml?api_key=[your_api_key]
   return 'http://api.sportsdatallc.org/nba-'
     + config.nba.access_level
-    + config.nba.version
-    + '/games/'
+    + config.nba.version 
+    + '/'
+    + entity
+    + '/'
     + config.nba.seasonID
     + '/'
     + config.nba.season
     + '/'
     + endpoint
-    + '.xml?api_key='
+    + '.'
+    + config.nba.format
+    + '?api_key='
     + config.nba.apikey;
 }
 
-function createUrlWithEndpointWithDate(endpoint, year, month, day) {
+function createUrlWithEndpointWithDate(entity, endpoint, year, month, day) {
   // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/[endpoint].xml?api_key=[your_api_key]
   return 'http://api.sportsdatallc.org/nba-'
     + config.nba.access_level
     + config.nba.version
-    + '/games/'
+    + '/'
+    + entity
+    + '/'
     + year
     + '/'
     + month
@@ -35,13 +41,19 @@ function createUrlWithEndpointWithDate(endpoint, year, month, day) {
 function createSeasonScheduleUrl() {
 
   // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[season]/[nba_season]/schedule.xml?api_key=[your_api_key]
-  return createUrlWithEndpoint('schedule');
+  return createUrlWithEndpoint('games', 'schedule');
 }
 
 function createDailyScheduleUrl(year, month, day) {
 
   // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
-  return createUrlWithEndpointWithDate('schedule', year, month, day);
+  return createUrlWithEndpointWithDate('games', 'schedule', year, month, day);
+}
+
+function createSeriesScheduleUrl() {
+
+  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
+  return createUrlWithEndpointWithDate('series', 'schedule', year, month, day);
 }
 
 function createBoxScoreUrl(gameID) {
@@ -52,19 +64,7 @@ function createBoxScoreUrl(gameID) {
     + config.nba.version
     + '/games/'
     + gameID
-    + '/boxscore.xml?api_key='
-    + config.nba.apikey;
-}
-
-function createGameSummaryUrl(gameID) {
-
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[game_id]/summary.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
-    + config.nba.access_level
-    + config.nba.version
-    + '/games/'
-    + gameID
-    + '/summary.xml?api_key='
+    + '/boxscore.json?api_key='
     + config.nba.apikey;
 }
 
@@ -78,7 +78,7 @@ function createStandingsUrl() {
     + config.nba.seasonID
     + '/'
     + config.nba.season
-    + '/standings.xml?api_key='
+    + '/standings.json?api_key='
     + config.nba.apikey;
 }
 
@@ -91,7 +91,50 @@ return 'http://api.sportsdatallc.org/nba-'
     + config.nba.seasonID
     + '/'
     + config.nba.season
-    + '/rankings.xml?api_key='
+    + '/rankings.json?api_key='
+    + config.nba.apikey;
+}
+
+function createLeagueHierarchyUrl() {
+  // URL should look like: nba-t3/league/hierarchy:format
+  return 'http://api.sportsdatallc.org/nba-'
+    + config.nba.access_level
+    + config.nba.version
+    + '/league/'
+    + '/hierarchy.json?api_key='
+    + config.nba.apikey;
+}
+
+function createTeamProfileUrl(teamID) {
+  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
+  return 'http://api.sportsdatallc.org/nba-'
+    + config.nba.access_level
+    + config.nba.version
+    + '/teams/'
+    + teamID
+    + '/profile.json?api_key='
+    + config.nba.apikey;
+}
+
+function createPlayerProfileUrl(playerID) {
+  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
+  return 'http://api.sportsdatallc.org/nba-'
+    + config.nba.access_level
+    + config.nba.version
+    + '/players/'
+    + playerID
+    + '/profile.json?api_key='
+    + config.nba.apikey;
+}
+function createGameSummaryUrl(gameID) {
+
+  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[game_id]/summary.xml?api_key=[your_api_key]
+  return 'http://api.sportsdatallc.org/nba-'
+    + config.nba.access_level
+    + config.nba.version
+    + '/games/'
+    + gameID
+    + '/summary.json?api_key='
     + config.nba.apikey;
 }
 
@@ -102,19 +145,41 @@ function createInjuriesUrl() {
     + config.nba.access_level
     + config.nba.version
     + '/league/'
-    + '/injuries.xml?api_key='
+    + '/injuries.json?api_key='
     + config.nba.apikey;
 }
 
-function createRosterUrl(teamID) {
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
+function createPlayByPlayUrl(gameID) {
   return 'http://api.sportsdatallc.org/nba-'
     + config.nba.access_level
     + config.nba.version
+    + '/games/'
+    + gameID
+    + '/pbp.json?api_key='
+    + config.nba.apikey;
+
+}
+
+function createSeasonalStatisticsUrl(teamID) {
+  return 'http://api.sportsdatallc.org/nba-'
+    + config.nba.access_level
+    + config.nba.version
+    + '/seasontd/'
+    + config.nba.seasonID
+    + '/'
+    + config.nba.season
     + '/teams/'
     + teamID
-    + '/profile.xml?api_key='
+    + '/statistics.json?api_key='
     + config.nba.apikey;
+}
+
+function createDailyChangeLogUrl(year, month, day) {
+  return createUrlWithEndpointWithDate('league', 'changes', year, month, day);
+}
+
+function createDailyTransfersUrl(year, month, day) {
+  return createUrlWithEndpointWithDate('league', 'transfers', year, month, day);
 }
 
 module.exports = {
@@ -125,6 +190,10 @@ module.exports = {
 
   getDailyScheduleUrl: function (year, month, day) {
     return createDailyScheduleUrl(year, month, day);
+  },
+
+  getSeriesSchedulesUrl: function (year, month, day) {
+    return createSeriesScheduleUrl();
   },
 
   getBoxScoreUrl: function (gameID) {
@@ -143,11 +212,40 @@ module.exports = {
     return createRankingsUrl();
   },
 
+  getLeagueHierarchyUrl: function() {
+    return createLeagueHierarchyUrl()
+  }, 
+
   getInjuriesUrl: function () {
     return createInjuriesUrl();
   },
 
-  getRosterUrl: function (teamID) {
-    return createRosterUrl(teamID);
+  getTeamProfileUrl: function (teamID) {
+    return createTeamProfileUrl(teamID);
+  }, 
+
+  getPlayerProfileUrl: function (playerID) {
+    return createPlayerProfileUrl(teamID);
   }
+
+  getGameSummaryUrl: function (gameID) {
+    return createGameSummaryUrl(gameID)
+  
+  getPlayByPlayUrl: function(gameID) {
+    return createPlayByPlayUrl(gameID)
+  }
+
+  getSeasonalStatisticsUrl: function(teamID) {
+    return createSeasonalStatisticsUrl(teamID)
+  }
+
+  getDailyChangeLogUrl: function(year, month, day) {
+    return createDailyChangeLogUrl(year, month, day)
+  }
+
+  getDailyTransfersUrl: function(year, month, day) {
+    return createDailyTransfersUrl(year, month, day)
+  }
+  
 }
+

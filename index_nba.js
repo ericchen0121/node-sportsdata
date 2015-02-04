@@ -12,18 +12,21 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+
 var config = require('./config'),
     request = require('request'),
     xml2js = require('xml2js'),
     parser = new xml2js.Parser(),
     urlHelper = require('./util/url_helper_nba');
 
-function init(access_level, version, apikey, seasonID, season) {
+// http://api.sportsdatallc.org/nba-t3/games/2014/REG/schedule.json?api_key=zy2799hzfk77uhcwjax5c58n
+function init(access_level, version, apikey, seasonID, season, format) {
     config.nba.access_level = access_level;
     config.nba.version = version;
     config.nba.apikey = apikey;
     config.nba.seasonID = seasonID;
     config.nba.season = season;
+    config.nba.format = format;
 }
 
 function getSeasonSchedule(callback) {
@@ -36,13 +39,13 @@ function getDailySchedule(year, month, day, callback) {
     createRequest(url, callback);
 }
 
-function getBoxScore(gameID, callback) {
-  var url = urlHelper.getBoxScoreUrl(gameID);
-  createRequest(url, callback);
+function getSeriesSchedules(callback) {
+    var url = urlHelper.getSeriesScheduleUrl();
+    createRequest(url, callback);
 }
 
-function getGameScoreAndStats(gameID, callback) {
-  var url = urlHelper.getGameSummaryUrl(gameID);
+function getBoxScore(gameID, callback) {
+  var url = urlHelper.getBoxScoreUrl(gameID);
   createRequest(url, callback);
 }
 
@@ -56,13 +59,48 @@ function getRankings(callback) {
     createRequest(url, callback);
 }
 
+function leagueHierarchy(callback) {
+    var url = urlHelper.getLeagueHierarchyUrl();
+    createRequest(url, callback);
+}
+
+function getGameSummary(gameID, callback) {
+  var url = urlHelper.getGameSummaryUrl(gameID);
+  createRequest(url, callback);
+}
+
+function teamProfile(teamID, callback) {
+    var url = urlHelper.getTeamProfileUrl(teamID);
+    createRequest(url, callback);
+}
+
+function playerProfile(callback) {
+    var url = urlHelper.getPlayerProfileUrl();
+    createRequest(url, callback);
+}
+
 function getInjuries(callback) {
     var url = urlHelper.getInjuriesUrl();
     createRequest(url, callback);
 }
 
-function getRoster(teamID, callback) {
-    var url = urlHelper.getRosterUrl(teamID);
+function getPlayByPlay(teamID, callback) {
+    var url = urlHelper.getPlayByPlayUrl(teamID);
+    createRequest(url, callback);
+}
+
+function getSeasonalStatistics(teamID, callback) {
+    var url = urlHelper.getSeasonalStatisticsUrl(teamID);
+    createRequest(url, callback);
+}
+
+function getDailyChangeLog(year, month, day, callback) {
+    var url = urlHelper.getDailyChangeLogUrl(year, month, day);
+    createRequest(url, callback);
+}
+
+function getDailyTransfers(year, month, day, callback) {
+    var url = urlHelper.getDailyTransfersUrl(year, month, day);
     createRequest(url, callback);
 }
 
