@@ -246,6 +246,5 @@ module.exports = {
   getDailyTransfersUrl: function(year, month, day) {
     return createDailyTransfersUrl(year, month, day)
   }
-  
-}
 
+};

@@ -12,8 +12,9 @@ config.nba = {};
 config.nba.access_level = 't';
 config.nba.version = '3';
 config.nba.apikey = '';
-config.nba.seasonID = '2013';
+config.nba.seasonID = '2014';
 config.nba.season = 'REG';
+config.nfl.format = 'json';
 
 config.mlb = {};
 config.mlb.access_level = 't';
