@@ -138,6 +138,10 @@ module.exports = {
         return getDailySchedule(year, month, day, callback);
     },
 
+    getSeriesSchedules: function(year, month, day, callback) {
+        return getSeriesSchedules(year, month, day, callback);
+    },
+
     getBoxScore: function(gameID, callback) {
       return getBoxScore(gameID, callback);
     },
