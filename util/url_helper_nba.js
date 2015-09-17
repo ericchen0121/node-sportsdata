@@ -226,22 +226,23 @@ module.exports = {
 
   getPlayerProfileUrl: function (playerID) {
     return createPlayerProfileUrl(teamID);
-  }
+  },
 
   getGameSummaryUrl: function (gameID) {
     return createGameSummaryUrl(gameID)
-  
+  }, 
+
   getPlayByPlayUrl: function(gameID) {
     return createPlayByPlayUrl(gameID)
-  }
+  },
 
   getSeasonalStatisticsUrl: function(teamID) {
     return createSeasonalStatisticsUrl(teamID)
-  }
+  },
 
   getDailyChangeLogUrl: function(year, month, day) {
     return createDailyChangeLogUrl(year, month, day)
-  }
+  },
 
   getDailyTransfersUrl: function(year, month, day) {
     return createDailyTransfersUrl(year, month, day)
