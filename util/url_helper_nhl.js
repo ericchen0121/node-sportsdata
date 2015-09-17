@@ -1,8 +1,8 @@
 var config = require('../config');
 
 function createUrlWithEndpoint(endpoint) {
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/games/[season]/[nhl_season]/[endpoint].xml?api_key=[your_api_key]
-    return 'http://api.sportsdatallc.org/nhl-'
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/games/[season]/[nhl_season]/[endpoint].xml?api_key=[your_api_key]
+    return 'http://api.sportradar.us/nhl-'
         + config.nhl.access_level
         + config.nhl.version
         + '/games/'
@@ -16,8 +16,8 @@ function createUrlWithEndpoint(endpoint) {
 }
 
 function createUrlWithEndpointWithDate(endpoint, year, month, day) {
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/games/[year]/[month]/[day]/[endpoint].xml?api_key=[your_api_key]
-    return 'http://api.sportsdatallc.org/nhl-'
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/games/[year]/[month]/[day]/[endpoint].xml?api_key=[your_api_key]
+    return 'http://api.sportradar.us/nhl-'
         + config.nhl.access_level
         + config.nhl.version
         + '/games/'
@@ -34,20 +34,20 @@ function createUrlWithEndpointWithDate(endpoint, year, month, day) {
 
 function createSeasonScheduleUrl() {
 
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/games/[season]/[nhl_season]/schedule.xml?api_key=[your_api_key]
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/games/[season]/[nhl_season]/schedule.xml?api_key=[your_api_key]
     return createUrlWithEndpoint('schedule');
 }
 
 function createDailyScheduleUrl(year, month, day) {
 
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
     return createUrlWithEndpointWithDate('schedule', year, month, day);
 }
 
 function createBoxScoreUrl(gameID) {
 
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/games/[game_id]/boxscore.xml?api_key=[your_api_key]
-    return 'http://api.sportsdatallc.org/nhl-'
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/games/[game_id]/boxscore.xml?api_key=[your_api_key]
+    return 'http://api.sportradar.us/nhl-'
         + config.nhl.access_level
         + config.nhl.version
         + '/games/'
@@ -58,8 +58,8 @@ function createBoxScoreUrl(gameID) {
 
 function createStandingsUrl() {
 
-    // URL should look like: http://api.sportsdatallc.org/nhl-[access_level][version]/seasontd/[season]/[nhl_season]/standings.xml?api_key=[your_api_key]
-    return 'http://api.sportsdatallc.org/nhl-'
+    // URL should look like: http://api.sportradar.us/nhl-[access_level][version]/seasontd/[season]/[nhl_season]/standings.xml?api_key=[your_api_key]
+    return 'http://api.sportradar.us/nhl-'
         + config.nhl.access_level
         + config.nhl.version
         + '/seasontd/'

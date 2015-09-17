@@ -20,7 +20,7 @@ var config = require('./config'),
     parser = new xml2js.Parser(),
     urlHelper = require('./util/url_helper_nba');
 
-// http://api.sportsdatallc.org/nba-t3/games/2014/REG/schedule.json?api_key=zy2799hzfk77uhcwjax5c58n
+// http://api.sportradar.us/nba-t3/games/2014/REG/schedule.json?api_key=zy2799hzfk77uhcwjax5c58n
 function init(access_level, version, apikey, seasonID, season, format) {
     config.nba.access_level = access_level;
     config.nba.version = version;

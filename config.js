@@ -4,8 +4,8 @@ config.nfl = {};
 config.nfl.access_level = 't';
 config.nfl.version = '1';
 config.nfl.apikey = '';
-config.nfl.year = '2012';
-config.nfl.season = 'REG';
+config.nfl.year = '2015';
+config.nfl.season = 'REG'; // Preseason (PRE), Regular Season (REG), Postseason (PST)
 config.nfl.format = 'xml';
 
 config.nba = {};

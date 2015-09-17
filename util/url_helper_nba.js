@@ -1,8 +1,8 @@
 var config = require('../config');
 
 function createUrlWithEndpoint(entity, endpoint) {
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[season]/[nba_season]/[endpoint].xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[season]/[nba_season]/[endpoint].xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version 
     + '/'
@@ -20,8 +20,8 @@ function createUrlWithEndpoint(entity, endpoint) {
 }
 
 function createUrlWithEndpointWithDate(entity, endpoint, year, month, day) {
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/[endpoint].xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[year]/[month]/[day]/[endpoint].xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/'
@@ -40,26 +40,26 @@ function createUrlWithEndpointWithDate(entity, endpoint, year, month, day) {
 
 function createSeasonScheduleUrl() {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[season]/[nba_season]/schedule.xml?api_key=[your_api_key]
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[season]/[nba_season]/schedule.xml?api_key=[your_api_key]
   return createUrlWithEndpoint('games', 'schedule');
 }
 
 function createDailyScheduleUrl(year, month, day) {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
   return createUrlWithEndpointWithDate('games', 'schedule', year, month, day);
 }
 
 function createSeriesScheduleUrl() {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[year]/[month]/[day]/schedule.xml?api_key=[your_api_key]
   return createUrlWithEndpointWithDate('series', 'schedule', year, month, day);
 }
 
 function createBoxScoreUrl(gameID) {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[game_id]/boxscore.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[game_id]/boxscore.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/games/'
@@ -70,8 +70,8 @@ function createBoxScoreUrl(gameID) {
 
 function createStandingsUrl() {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/seasontd/[season]/[nba_season]/standings.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/seasontd/[season]/[nba_season]/standings.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/seasontd/'
@@ -83,8 +83,8 @@ function createStandingsUrl() {
 }
 
 function createRankingsUrl() {
-  // URL should look like:  http://api.sportsdatallc.org/nba-[access_level][version]/seasontd/[season]/[nba_season]/rankings.xml?api_key=[your_api_key]
-return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like:  http://api.sportradar.us/nba-[access_level][version]/seasontd/[season]/[nba_season]/rankings.xml?api_key=[your_api_key]
+return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/seasontd/'
@@ -97,7 +97,7 @@ return 'http://api.sportsdatallc.org/nba-'
 
 function createLeagueHierarchyUrl() {
   // URL should look like: nba-t3/league/hierarchy:format
-  return 'http://api.sportsdatallc.org/nba-'
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/league/'
@@ -106,8 +106,8 @@ function createLeagueHierarchyUrl() {
 }
 
 function createTeamProfileUrl(teamID) {
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/teams/'
@@ -117,8 +117,8 @@ function createTeamProfileUrl(teamID) {
 }
 
 function createPlayerProfileUrl(playerID) {
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/teams/[team_id]/profile.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/players/'
@@ -128,8 +128,8 @@ function createPlayerProfileUrl(playerID) {
 }
 function createGameSummaryUrl(gameID) {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/games/[game_id]/summary.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/games/[game_id]/summary.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/games/'
@@ -140,8 +140,8 @@ function createGameSummaryUrl(gameID) {
 
 function createInjuriesUrl() {
 
-  // URL should look like: http://api.sportsdatallc.org/nba-[access_level][version]/league/injuries.xml?api_key=[your_api_key]
-  return 'http://api.sportsdatallc.org/nba-'
+  // URL should look like: http://api.sportradar.us/nba-[access_level][version]/league/injuries.xml?api_key=[your_api_key]
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/league/'
@@ -150,7 +150,7 @@ function createInjuriesUrl() {
 }
 
 function createPlayByPlayUrl(gameID) {
-  return 'http://api.sportsdatallc.org/nba-'
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/games/'
@@ -161,7 +161,7 @@ function createPlayByPlayUrl(gameID) {
 }
 
 function createSeasonalStatisticsUrl(teamID) {
-  return 'http://api.sportsdatallc.org/nba-'
+  return 'http://api.sportradar.us/nba-'
     + config.nba.access_level
     + config.nba.version
     + '/seasontd/'
