@@ -1,6 +1,6 @@
 {
   "name": "sportsdata-mongo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node module that wraps the SportsData API with mongoDB-friendly parsing",
   "main": "index.js",
   "scripts": {
@@ -13,19 +13,19 @@
   "keywords": [
     "sportsdata",
     "sports",
-    "api", 
+    "api",
     "mongoDB"
   ],
   "author": "Eric Chen",
-  "engines" : {
-      "node": "*"
+  "engines": {
+    "node": "*"
   },
-  "homepage" : "https://github.com/ericchen0121/node-sportsdata",
+  "homepage": "https://github.com/ericchen0121/node-sportsdata",
   "dependencies": {
-    "request" : ">= 0.0.1",
-    "xml2js" : ">= 0.0.1"
+    "request": ">= 0.0.1",
+    "xml2js": ">= 0.0.1"
   },
   "devDependencies": {
-      "nodeunit": ">= 0.0.1"
+    "nodeunit": ">= 0.0.1"
   }
 }
