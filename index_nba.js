@@ -75,8 +75,8 @@ function teamProfile(teamID, callback) {
     createRequest(url, callback);
 }
 
-function playerProfile(callback) {
-    var url = urlHelper.getPlayerProfileUrl();
+function playerProfile(playerID, callback) {
+    var url = urlHelper.getPlayerProfileUrl(playerID);
     createRequest(url, callback);
 }
 
@@ -158,20 +158,24 @@ module.exports = {
         return getRankings(callback);
     },
 
-    getLeagueHierarchy: function(callback) {
-        return getLeagueHierarchy(callback);
-    },
-
-    getGameScoreAndStats: function(gameID, callback) {
-      return getGameScoreAndStats(gameID, callback);
-    },
-
     getInjuries: function(callback) {
         return getInjuries(callback);
     },
 
+    getLeagueHierarchy: function(callback) {
+        return getLeagueHierarchy(callback);
+    },
+
     getTeamProfile: function(teamID, callback) {
       return getTeamProfile(teamID, callback);
+    },
+
+    getPlayerProfile: function(playerID, callback) {
+      return getPlayerProfile(playerID, callback);
+    },
+
+    getPlayByPlay: function(teamID, callback) {
+        return getPlayByPlay(teamID, callback);
     },
 
     getSeasonalStatistics: function(teamID, callback) {
