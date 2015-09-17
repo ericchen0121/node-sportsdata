@@ -146,8 +146,8 @@ module.exports = {
       return getBoxScore(gameID, callback);
     },
 
-    getGameScoreAndStats: function(gameID, callback) {
-      return getGameScoreAndStats(gameID, callback);
+    getGameSummary: function(gameID, callback) {
+        return getGameSummary(gameID, callback);
     },
 
     getStandings: function(callback) {
@@ -158,11 +158,31 @@ module.exports = {
         return getRankings(callback);
     },
 
+    getLeagueHierarchy: function(callback) {
+        return getLeagueHierarchy(callback);
+    },
+
+    getGameScoreAndStats: function(gameID, callback) {
+      return getGameScoreAndStats(gameID, callback);
+    },
+
     getInjuries: function(callback) {
         return getInjuries(callback);
     },
 
-    getRoster: function(teamID, callback) {
-        return getRoster(teamID, callback);
+    getTeamProfile: function(teamID, callback) {
+      return getTeamProfile(teamID, callback);
+    },
+
+    getSeasonalStatistics: function(teamID, callback) {
+        return getSeasonalStatistics(teamID, callback);
+    },
+
+    getDailyChangeLog: function(year, month, day, callback) {
+        return returngetDailyChangeLog(year, month, day, callback);
+    },
+
+    getDailyTransfers: function(year, month, day, callback) {
+        return getDailyTransfers(year, month, day, callback);
     }
 };
