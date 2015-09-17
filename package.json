@@ -1,6 +1,6 @@
 {
   "name": "sportsdata-mongo",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Node module that wraps the SportsData API with mongoDB-friendly parsing",
   "main": "index.js",
   "scripts": {
