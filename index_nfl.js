@@ -15,19 +15,7 @@
 
 var config = require('./config'),
     request = require('request'),
-    xml2js = require('xml2js'),
-    // Merge the attributes with child nodes; this prevents the $ object, which is incompatible with MongoDB
-    parser = new xml2js.Parser({mergeAttrs: true, explicitArray: false}),
     urlHelper = require('./util/url_helper_nfl');
-
-// Type convert strings to integers / numbers
-parser.onattribute = function (attr) {
-// http://stackoverflow.com/questions/175739/is-there-a-built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
-  // If the string value is actually a number
-  if(!isNaN(+attr.value)){
-    attr.value = +attr.value
-  }
-}
 
 function init(access_level, version, apikey, year, season) {
     config.nfl.access_level = access_level;
@@ -131,11 +119,7 @@ function createRequest(url, callback) {
     request(url, function (error, response, body) {
 
         if (!error && response.statusCode == 200) {
-
-            // Parse the XML to JSON
-            parser.parseString(body, function (err, result) {
-                callback(err, result);
-            });
+            callback(error, body);
         } else {
             callback(error, body);
         }
@@ -143,8 +127,8 @@ function createRequest(url, callback) {
 }
 
 module.exports = {
-    init: function(access_level, version, apikey, year, season) {
-        return init(access_level, version, apikey, year, season);
+    init: function(access_level, version, apikey, year, season, format) {
+        return init(access_level, version, apikey, year, season, format);
     },
 
     setRequest: function(reqObj) {

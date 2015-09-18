@@ -1,3 +1,4 @@
+// Defaults that can be overwritten on init
 var config = {}
 
 config.nfl = {};
@@ -6,7 +7,7 @@ config.nfl.version = '1';
 config.nfl.apikey = '';
 config.nfl.year = '2015';
 config.nfl.season = 'REG'; // Preseason (PRE), Regular Season (REG), Postseason (PST)
-config.nfl.format = 'xml';
+config.nfl.format = 'json';
 
 config.nba = {};
 config.nba.access_level = 't';
